@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Films</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h2>Liste des Films</h2>
+        <input type="text" id="searchBar" placeholder="Rechercher par titre ou genre">
+        <ul id="movieList"></ul>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const movies = JSON.parse(localStorage.getItem("movies")) || [];
+            const listContainer = document.getElementById("movieList");
+
+            function displayMovies(filter = "") {
+                listContainer.innerHTML = "";
+                movies.forEach((movie, index) => {
+                    if (filter === "" || movie.title.includes(filter) || movie.genre.includes(filter)) {
+                        const li = document.createElement("li");
+                        li.textContent = `${movie.title} - ${movie.director} (${movie.year})`;
+                        const deleteBtn = document.createElement("button");
+                        deleteBtn.textContent = "Supprimer";
+                        deleteBtn.onclick = function() {
+                            movies.splice(index, 1);
+                            localStorage.setItem("movies", JSON.stringify(movies));
+                            displayMovies();
+                        };
+                        li.appendChild(deleteBtn);
+                        listContainer.appendChild(li);
+                    }
+                });
+            }
+
+            document.getElementById("searchBar").addEventListener("input", (e) => {
+                displayMovies(e.target.value);
+            });
+
+            displayMovies();
+        });
+    </script>
+
+</body>
+</html>

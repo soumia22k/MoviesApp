@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter un Film</title>
+    <link rel="stylesheet" href="add.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><strong>MyMovies</strong> 🎬</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="liste.html">Liste</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </nav> 
+
+    <div class="form-container">
+        <h2>Ajouter un Film</h2>
+        <form id="movieForm">
+            <input type="text" id="title" placeholder="Titre" required>
+            <input type="text" id="director" placeholder="Réalisateur" required>
+            <input type="number" id="year" placeholder="Année" required>
+            <input type="text" id="image" placeholder="URL de l'image" required> 
+            <button type="submit">Ajouter</button>
+        </form>
+        <p id="message" style="color: green; display: none;">Film ajouté avec succès !</p>
+    </div>
+    <footer>
+        <h4>MyMovies 🎬</h4>
+        <p>Explorez, regardez et savourez les meilleurs films en un clic ! 🎬🍿</p>
+        <div class="social-icons">
+            <a href="#"><img src="assets/images/insta1.png" alt="Instagram"></a>
+            <a href="#"><img src="assets/images/tiktok1.png" alt="TikTok"></a>
+            <a href="#"><img src="assets/images/yout1.png" alt="YouTube"></a>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById("movieForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // Récupérer les valeurs
+            const title = document.getElementById("title").value.trim();
+            const director = document.getElementById("director").value.trim();
+            const year = document.getElementById("year").value.trim();
+            const image = document.getElementById("image").value.trim();  // Récupérer l'URL de l'image
+
+            // Vérifier que tous les champs sont remplis
+            if (!title || !director || !year || !image) {
+                alert("Veuillez remplir tous les champs !");
+                return;
+            }
+
+            // Vérifier si "movies" existe déjà dans localStorage
+            const movies = JSON.parse(localStorage.getItem("movies")) || [];
+            movies.push({ title, director, year, image });  // Ajouter l'image dans les données du film
+
+            // Sauvegarder dans localStorage
+            localStorage.setItem("movies", JSON.stringify(movies));
+
+            // Afficher un message de confirmation
+            document.getElementById("message").style.display = "block";
+
+            // Redirection après une seconde
+            setTimeout(() => {
+                window.location.href = "liste.html";  // Rediriger vers la page de la liste
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

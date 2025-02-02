@@ -8,40 +8,32 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
 <body>
-
-   
-    <nav class="navbar">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <strong>MyMovies</strong> 🎬
-            </a>
-          
+            <a class="navbar-brand" href="index.html"><strong>MyMovies</strong> 🎬</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="pages/index.html">Accueil</a></li>
-                    <li class="nav-item"><a class="nav-link" href="pages/list.html">Liste</a></li>
-                    <li class="nav-item"><a class="nav-link" href="pages/add.html">Ajouter</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="liste.html">Liste</a></li>
+                    <li class="nav-item"><a class="nav-link" href="add.html">Ajouter</a></li>
                 </ul>
             </div>
         </div>
-    </nav>
-
-   
-    <header class="banner">
-        <h1 class="text-center">Bienvenue sur MyMovies</h1>
+    </nav> 
+    <header class="banner text-center">
+        <h1>Bienvenue sur MyMovies</h1>
     </header>
-
-   
     <section class="films-container">
         <div class="films">
-            <img src="assets/images/film1.jpg" alt="The Last of Us">
-            <img src="assets/images/film2.jpg" alt="Tangled">
-            <img src="assets/images/film3.jpg" alt="Interstellar">
-            <img src="assets/images/film4.jpg" alt="CCCCCC">
+            <img src="assets/images/film1.jpg" alt="Film 1">
+            <img src="assets/images/film2.jpg" alt="Film 2">
+            <img src="assets/images/film3.jpg" alt="Film 3">
+            <img src="assets/images/film4.jpg" alt="Film 4">
         </div>
     </section>
-
-   
     <footer>
         <h4>MyMovies 🎬</h4>
         <p>Explorez, regardez et savourez les meilleurs films en un clic ! 🎬🍿</p>
@@ -50,8 +42,8 @@
             <a href="#"><img src="assets/images/tiktok1.png" alt="TikTok"></a>
             <a href="#"><img src="assets/images/yout1.png" alt="YouTube"></a>
         </div>
-    </footer>
-
+    </footer> 
     <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

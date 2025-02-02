@@ -1,0 +1,60 @@
+/* Style global */
+body{
+        background-image: url(assets/images/back.jpg) ;
+        background-repeat: no-repeat;
+        background-size: cover;
+}
+
+
+.navbar {
+    background-color:  #444343 ;
+}
+
+
+
+.form-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.form-container input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #b5b5b5;
+    border: none;
+    cursor: pointer;
+}
+
+.form-container button:hover {
+    background-color: #999;
+}
+
+
+footer {
+    background-color: #b5b5b5;
+    text-align: center;
+    padding: 15px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.social-icons img {
+    width: 30px;
+    margin: 0 10px;
+    transition: transform 0.3s;
+}
+
+.social-icons img:hover {
+    transform: scale(1.2);
+}
